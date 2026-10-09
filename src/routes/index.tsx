@@ -1,24 +1,46 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  TopBar, Header, MenuOverlay, Hero, IndexSection, PlateGallery, Anatomy, MacroStrip,
+  HiVis, Route as RouteSection, Winter, Footwear, Women, Proof, Bulk, Journal, Newsletter, Footer,
+} from "@/components/site/sections";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Euro Work Wear — European precision. American jobsite." },
+      { name: "description", content: "U.S. distributor of quality European workwear. CXS jackets, work pants, hi-vis and safety footwear. Palatine, Illinois." },
+      { property: "og:title", content: "Euro Work Wear — European precision. American jobsite." },
+      { property: "og:description", content: "Quality European workwear, stocked in Palatine, IL." },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [menu, setMenu] = useState(false);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="relative">
+      <TopBar />
+      <Header onMenu={() => setMenu(true)} />
+      <MenuOverlay open={menu} onClose={() => setMenu(false)} />
+      <main>
+        <Hero />
+        <IndexSection />
+        <PlateGallery />
+        <Anatomy />
+        <MacroStrip />
+        <HiVis />
+        <RouteSection />
+        <Winter />
+        <Footwear />
+        <Women />
+        <Proof />
+        <Bulk />
+        <Journal />
+        <Newsletter />
+      </main>
+      <Footer />
     </div>
   );
 }
