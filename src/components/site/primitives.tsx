@@ -35,9 +35,8 @@ export function Rise({
 }) {
   const [ref, inView] = useInView<HTMLSpanElement>(0.1);
   return (
-    <Tag className={`block overflow-hidden ${className}`}>
+    <Tag ref={ref} className={`block overflow-hidden ${className}`}>
       <span
-        ref={ref}
         className={`reveal-rise block ${inView ? "is-in" : ""}`}
         style={{ transitionDelay: `${delay}ms` }}
       >
