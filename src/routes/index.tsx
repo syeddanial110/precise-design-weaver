@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  TopBar, Header, MenuOverlay, Hero, IndexSection, PlateGallery, Anatomy, MacroStrip,
+  TopBar, Header, MenuOverlay, Hero, IndexSection, PlateGallery, Anatomy,
   HiVis, Route as RouteSection, Winter, Footwear, Women, Proof, Bulk, Journal, Newsletter, Footer,
 } from "@/components/site/sections";
 
@@ -29,7 +29,6 @@ function Index() {
         <IndexSection />
         <PlateGallery />
         <Anatomy />
-        <MacroStrip />
         <HiVis />
         <RouteSection />
         <Winter />

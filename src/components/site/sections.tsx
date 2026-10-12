@@ -240,16 +240,6 @@ export function Anatomy() {
   );
 }
 
-/* ---------- 5. Macro strip ---------- */
-export function MacroStrip() {
-  return (
-    <section className="pt-[160px]">
-      <Wipe src={img.macro} alt="Fabric and stitching close-up" width={1920} height={640} className="h-[38vw] max-h-[520px] min-h-[220px]" />
-      <div className={`${wrap} mono mt-3 text-caption`}>OEKO-TEX Standard 100 / Tested free from harmful chemicals</div>
-    </section>
-  );
-}
-
 /* ---------- 6. Hi-Vis takeover ---------- */
 export function HiVis() {
   const [ref, inView] = useInView<HTMLElement>(0.45, false);
