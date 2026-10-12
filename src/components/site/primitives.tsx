@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
+import logo from "@/assets/logo.png";
 
 export function useInView<T extends Element>(threshold = 0.2, once = true) {
   const ref = useRef<T | null>(null);
@@ -119,16 +120,8 @@ export function SectionHead({
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-3 ${className}`}>
-      <svg viewBox="0 0 40 28" className="h-6 w-auto" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.6">
-        <path d="M2 26 L14 2 L20 14" />
-        <path d="M8 18 H17" />
-        <path d="M38 2 H24 L18 26 H34" />
-        <path d="M22 14 H32" />
-      </svg>
-      <span className="font-display text-[11px] font-semibold uppercase tracking-[0.28em]" style={{ fontStretch: "125%" }}>
-        Euro Work Wear
-      </span>
+    <span className={`inline-flex items-center bg-white px-3 py-1.5 ${className}`}>
+      <img src={logo} alt="Euro Work Wear" className="h-10 w-auto" />
     </span>
   );
 }
