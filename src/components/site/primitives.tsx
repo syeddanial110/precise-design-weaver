@@ -120,7 +120,7 @@ export function SectionHead({
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center bg-white px-3 py-1.5 ${className}`}>
+    <span className={`inline-flex items-center${className}`}>
       <img src={logo} alt="Euro Work Wear" className="h-10 w-auto" />
     </span>
   );
