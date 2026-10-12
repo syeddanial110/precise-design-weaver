@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Search, User, ShoppingBag, ArrowRight, ArrowUpRight } from "lucide-react";
-import { collections, img, plates, PALATINE } from "./data";
+import { collections, img, plates, products, PALATINE } from "./data";
 import { Logo, Reg, Rise, Rule, SectionHead, Wipe, useInView } from "./primitives";
 import store from "@/assets/store.jpg";
 
@@ -218,7 +218,7 @@ export function Anatomy() {
       <div className={wrap}>
         <SectionHead index="03" label="Anatomy of a garment" right="CXS Stretch / Men's Work Pants / 69.99 USD" />
         <div className="relative mx-auto aspect-[3/4] max-w-[560px]">
-          <img src={img.pants} alt="CXS Stretch Men's Work Pants" loading="lazy" className="h-full w-full object-contain invert-0" style={{ filter: "contrast(1.05)" }} />
+          <img src={products.stretchPants} alt="CXS Stretch Men's Work Pants" loading="lazy" className="h-full w-full object-contain invert-0" style={{ filter: "contrast(1.05)" }} />
           {anatomy.map((a) => (
             <div key={a.n} className="absolute" style={{ left: `${a.x}%`, top: `${a.y}%` }}>
               <span className="absolute -left-[4px] -top-[4px] block h-2 w-2 rounded-full bg-hivis" />
@@ -255,8 +255,8 @@ export function HiVis() {
           <h2 className="display text-[22vw] md:col-span-7 md:text-[15vw]">Hi<br />Vis</h2>
           <div className="grid grid-cols-2 gap-6 md:col-span-5">
             {[
-              { n: "CXS Bedford", t: "3-in-1", p: "159.90", i: img.hivis },
-              { n: "CXS Halifax", t: "Shell", p: "79.90", i: img.hivis },
+              { n: "CXS Bedford", t: "3-in-1", p: "159.90", i: products.bedford },
+              { n: "CXS Halifax", t: "Shell", p: "79.90", i: products.halifax },
             ].map((x, k) => (
               <figure key={k} className={k === 1 ? "mt-24" : ""}>
                 <div className="aspect-[3/4] border border-graphite/30">
@@ -330,8 +330,8 @@ export function Winter() {
       <div className="flex flex-col gap-32 px-5 py-32 md:px-16">
         <span className="mono">06 / Winter</span>
         {[
-          { n: "CXS Stretch", t: "Winter Pants", p: "86.99", i: img.pants },
-          { n: "CXS Sirius", t: "Nikolas", p: "89.90", i: img.winterJ },
+          { n: "CXS Stretch", t: "Winter Pants", p: "86.99", i: products.stretchWinterPants },
+          { n: "CXS Sirius", t: "Nikolas", p: "89.90", i: products.nikolas },
         ].map((x, k) => (
           <figure key={k} className={k ? "ml-auto w-[70%]" : "w-[78%]"}>
             <div className="aspect-[3/4] bg-plate"><img src={x.i} alt={`${x.n} ${x.t}`} loading="lazy" className="h-full w-full object-contain p-8 mix-blend-multiply" /></div>
@@ -346,10 +346,10 @@ export function Winter() {
 /* ---------- 8b. Footwear strip ---------- */
 export function Footwear() {
   const boots = [
-    { n: "CXS Universe Stratus S3S", p: "149.90" },
-    { n: "CXS Land Senja S3S", p: "79.90", was: "129.90" },
-    { n: "CXS Dog Malamute S3", p: "114.90", was: "154.90" },
-    { n: "CXS Island Saba S1PS", p: "129.99" },
+    { n: "CXS Universe Stratus S3S", p: "149.90", i: products.stratus },
+    { n: "CXS Land Senja S3S", p: "79.90", was: "129.90", i: products.senja },
+    { n: "CXS Dog Malamute S3", p: "114.90", was: "154.90", i: products.malamute },
+    { n: "CXS Island Saba S1PS", p: "129.99", i: products.saba },
   ];
   return (
     <section className="section-gap bg-bone-deep">
@@ -357,7 +357,7 @@ export function Footwear() {
       <div className="no-scrollbar flex overflow-x-auto">
         {boots.map((b, i) => (
           <figure key={i} className="w-[80vw] shrink-0 border-r border-graphite/15 px-8 sm:w-[44vw] lg:w-[30vw]">
-            <img src={img.boot} alt={b.n} loading="lazy" className="aspect-[4/3] w-full object-contain mix-blend-multiply" />
+            <img src={b.i} alt={b.n} loading="lazy" className="aspect-[4/3] w-full object-contain mix-blend-multiply" />
             <figcaption className="mono mt-4 grid grid-cols-[minmax(0,1fr)_auto] gap-3">
               <span>{b.n}</span>
               <span className="text-right">{b.p} USD{b.was && <span className="block line-through opacity-50">{b.was}</span>}</span>
@@ -380,8 +380,8 @@ export function Women() {
           <h2 className="display-cond mb-8 text-6xl md:text-8xl">Same<br />standard</h2>
           <p className="measure mb-16 text-sm text-caption">Cut for women. Built to the same spec.</p>
           <figure className="w-1/2">
-            <div className="aspect-[3/4] bg-plate"><img src={img.jacket} alt="Women's softshell" loading="lazy" className="h-full w-full object-contain p-4 mix-blend-multiply" /></div>
-            <figcaption className="mono mt-2">Plate W1 / Softshell</figcaption>
+            <div className="aspect-[3/4] bg-plate"><img src={products.womenPants} alt="CXS Stretch Women's Work Pants" loading="lazy" className="h-full w-full object-contain p-4 mix-blend-multiply" /></div>
+            <figcaption className="mono mt-2">Plate W1 / Stretch Work Pants</figcaption>
           </figure>
           <a href="#" className="mono draw mt-10 inline-flex items-center gap-2">Shop women <ArrowRight className="h-3 w-3" /></a>
         </div>
